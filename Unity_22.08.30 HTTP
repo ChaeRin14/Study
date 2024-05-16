@@ -1,0 +1,23 @@
+HTTP(Hyper Text Transfer Protocol) : 서버가 요청이 있어야만 움직임
+
+- 단방향 통신 
+Client -> Server (요청) : 주소창에 네이버 주소 넣기
+Server -> Client (응답) : 클라이언트에게 네이버창 보여줌
+=> JSON으로 주고받음
+
+- 데이터 요청 종류
+① POST : 데이터를 생성 
+(ex. 아이디 비밀번호같은거 칠 때, 데이터를 생성해서 보내는 것)
+② GET : 데이터 조회 (URL을 통해 조회를 할 수 있다)
+     https://jsonplaceholder.typicode.com/comments[조건]
+③ PUT :  데이터 업데이트(수정) - 이름값을 같이 보내줘야함
+(ex. 개인정보 수정할 때)
+④ DELETE : 데이터 삭제
+(ex. 회원탈퇴 같은 거)
+⑤ PROTOCOL : 클라 / 서버, 서버 / 서버 등 다른 장치들간의 데이터를 주고받을 때 약속
+(URL 요청사항을 미리 이야기 해주는 경우가 대부분임)
+
+- Socket(TCP, UDP) : 실시간 양방향 통신
+양방향 통신
+Client <-> Server : 서로 데이터를 주고 받음. (계속해서 연결 확인)
+ex) 채팅 , 온라인 게임 
