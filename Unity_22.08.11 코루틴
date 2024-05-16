@@ -1,0 +1,40 @@
+Task(ex. APP) : O.S가 하나씩 실행하는 단위
+Multi-Task : Task 여러개가  한꺼번에 실행될때 
+Thread : App 안에서 실행되는 것(음악, 애니메이션, 다운로드)들의 단위
+Multi-Thread : Thread가 여러개 한꺼번에 실행될때
+하나의 통로에서 여러 개의 Thread를 실행하지 못함(병목 현상)
+=> Multi-Thread 처리 방법 : 통로를 여러개 만듦(병렬처리 , 병목현상 방지)
+
+한 cycle에(Routine : 함수 한 번 돌아가는 것) 다중작업 해야할 때 코루틴 필요
+
+- 코루틴 사용 시 발생할 문제
+	A라는 코루틴 함수를 각각 여러 번 호출할 때 동작이 반복되는 현상이 나타날 수 있음
+코루틴의 특징 : 시간에 따른 처리가 편리해짐. (그래서 오히려 더 꼬일 수 있다는 무서움)  
+** 코루틴은 반드시 양보가 반환값이다
+
+- 코루틴 내에서 시간 확인법
+시간 계속 바라보기 > if (currentTime > damageDelayTime)
+알람 맞추고 자러가기(양보) > yield return new WaitForSeconds(damageDelayTime);
+
+- 코루틴에서 멈추지않고 계속 실행하는 방법
+움직임을 Update함수처럼 DeltaTime으로 지정해주기
+While문을 실행하여 break조건을 걸어줌
+
+// 주의 사항
+업데이트 안에서 코루틴 호출하지 말자
+만약 조건이 있어 Update에 쓴다면 꼭 StopCoroutine 사용하자
+While문 자체에 시간 조건을 주고 진행하면 여러 행위를 할 수 있음
+(Time.deltaTime의 Float값을 추가)
+
+코루틴이 반복되고 겹쳐지는 현상을 막기위해 이전 실행 중인 코루틴을 멈춰줘야 함
+-> 해당 코루틴을 호출하는 곳에서 (OnDamageProcess)
+StopAllCoroutines : 모든 코루틴 함수를 정지
+
+- Start함수에서 코루틴을 실행하여 State를 변경하고 싶을 때
+	Start함수를 IEnumerator Start()로 반환값 변경
+While문을 활용하여 계속 돌리기
+StartCoroutine(m_state.ToString()); -> StartCoroutine 이 끝날 때까지 자러 들어간다.
+
+코루틴은 시스템 유휴 시간 프로세스(CPU)를 확보하기 위해 실무에서 사용
+
+
