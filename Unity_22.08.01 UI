@@ -1,0 +1,27 @@
+* UI 용어 정리
+
+Canvas = 비어있는 도화지 (목적에따라 다르게 설정할 수 있음)
+Canvas의 크기는 설정한 해상도와 같음, 게임뷰의 비율과 같음
+Scereen Space : 게임뷰를 평면으로 봤을 때
+World Space : 입체적인 공간
+
+- Layout Group
+HP Bar 같은 것 구현할 때
+Add Component > Horizontal Layout Group
+Spacing : 각 오브젝트간의 간격을 얼마로 둘지
+Control Child Size :차일드 게임오브젝트의 가로 세로 크기 맞춰줄 것인가
+Image > Image Type > Filled / Fill Method > Horizontal(방향) 설정하면 
+Fill Amount를 움직일 때 해당 Image가 움직이게 됨 (에너지 바 처럼)
+
+Image > Image Type > Simple : 단순히 가로 세로를 늘림
+Window > Package Manager > 2D Sprite 설치 후 이미지의 Sprite Editor를 선택하면 
+속성을 변경할 수 있는 창이 생성된다 (녹색선으로 영역을 나눔)
+
+
+- VR의 화면을 만들 때 설정해줘야 하는 것
+World 상의 공간기준으로 바꿔주기 Canvas > Render Mode > World Space
+Canvas의 Width, Height는 해상도가 달라지므로 Scale을 변화시킬 것
+UI가 하나의 오브젝트처럼 게임뷰에서 보이게 됨
+1x1x1 큐브를 기준으로 크기를 맞춰서 줄여주고 배치해줌
+(Canvas 자체의 크기도 맞춰서 줄여줌)
+오브젝트가 항상 카메라 바라보게  : World Space, 빌보드(코드 따로 해줘야 함)
