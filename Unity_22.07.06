@@ -1,0 +1,31 @@
+- Tag : 식별표
+Tag와 Layer는 사용법이 다름
+여러명한테 Tag 붙일 수 있다 => 아군, 적군 구분용
+① gameObject.tag = “태그 이름”
+② gameObject.CompareTag(“태그 이름”)
+
+- Layer
+Layer 비교도 가능함
+Layer로도 Player찾을 수 있다(Layer 이름 or 번호로)
+① gameObject.layer == “레이어 번호”
+② gameObject.layer == LayerMask.NameToLayer(“레이어 이름”)
+
+- 방어코드
+종종 코드를 짜다보면 원하는 값보다 더 마이너스 되는 경우 있음
+=> ==보다는 <= 사용
+
+- 상속
+상속 기호( : )
+script를 만들었을 때, 스크립트 이름 : MonoBehaviour
+=> MonoBehaviour를 스크립트 이름이 상속받음
+
+- Static
+너무 많이 사용하면 복잡해짐 => 공통적인 요소만 올려놓는다
+건의 사항을 게시판에 올려 놓기보단 관리자만 올려놓으면 편해짐
+(건의 사항 : 변수, 게시판 : Static, 관리자 : 스크립트)
+
+- MeshRenderer
+Mesh와 Material이 필요함
+Material : Texture와 Shader가 존재
+
+
