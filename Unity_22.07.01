@@ -1,0 +1,29 @@
+- Static
+전역공간에 있음 
+올라갈 수 있는 것 : 속성, 기능
+→반드시 출처 있어야 함(ex. A int hp, B int hp)
+문법 : static 자료형 변수이름
+코드와 static은 메모리가 정해져 있음 => 정적 메모리
+
+- 싱글톤패턴 : 디자인 패턴 중 하나, 중앙집권화, 단 하나만 존재
+① public static EnemyGOD instance;
+② void(정해지지 않음,비어있음)  Awake : 막 태어났을 때(Start 이전에 실행됨)
+	{
+		Instance = this;
+		→ this : EnemyGOD 자신
+}
+
+- for 문 ↔ while 문(조건, 계속, 무한루프에 빠질 수 있다)
+어디에서 어디까지(한정) 
+① 문법 : for(①초기값 설정 ; ②조건 ; ④증감)
+    {
+	③문장(To do)
+    }
+
+② i++ vs ++i
+⑴ i++ : 후위증가 -> 데이터를 저장할 임시 공간 생성
+⑵ ++i : 전위증가
+
+
+
+
