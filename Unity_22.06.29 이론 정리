@@ -1,0 +1,64 @@
+- SDK vs. API
+① : SDK (Software Development Kit)
+:  제조사에서 다 만든 것(Windows 운영체제, IOS, Android,Unity, ), 설치
+② : API (Application Programming Interface)
+: 개발하는 데 필요한 부분적인 기능 이용하기 위해 사용
+: Document 형태
+: 개발자들은 제조사에서 오픈한 일부분 항목들을 공부
+
+
+- Unity에서의 약속
+변수 : 소문자 
+함수 : 대문자
+
+
+- 자료형 정리
+int : 정수
+float : 실수
+string : 문자열
+bool :  참, 거짓
+사용자 자료형 : Class
+
+
+- Overflow
+: 자료형의 크기가 맞지 않아 생김 => 시스템 다운됨
+: int가 float보다 크기가 작음
+
+- TypeCast
+: 크기가 맞지 않은 자료형을 강제로 변환하는 것(되는 것 한정되어 있음)
+
+- Translate : P = P0 +vt 를 내부적으로 계산(유니티 제공)
+  운동 공식(리지드바디가 내부적으로 계산)
+  힘 -> 가속도 변화 -> 속도 변화 -> 위치 변화
+** 중요
+① 등속 운동 : P = P0 + vt : deltaTime
+② 등가속 운동 : V = V0 + at : Velocity
+③ F = ma( m : 질량) : AddFore
+-> 순간속도 : 미분으로 계산
+
+** 중요
+- Vector : 크기 + 방향 ㅡ>
+① + : 모든 힘의 합
+② - : 타겟과 나의 사이 거리와 방향 구하기(Me -> Target : Target - Me)
+③ • : 내적, 각도찾기에 유리
+
+- Normalize(정규화, 함수)
+Vector(크기, 방향)중 방향만 남기고 싶어서 -> 둘 사이의 거리가 상관없을 경우에만
+Normalize를 하지 않게 되면 속도에 영향을 주게 되어 멀수록 빨라지니 정규화를 해 줘야 함
+
+- normalized (속성)
+원본은 그대로 유지됨 -> 둘 사이의 거리가 바뀌면 안 될 때
+
+- 가상메모리 
+어플을 실행시킬 때 차지되는 메모리
+코드 -> static, 전역 변수 -> stack, heap 순으로 할당
+
+- Compile 
+동적 변수는 확인할 수 없음
+
+- public 접근 제한자
+모든 사람이 접근할 수 있게 만듦
+
+
+
+
