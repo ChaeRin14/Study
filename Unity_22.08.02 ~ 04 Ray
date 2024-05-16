@@ -1,0 +1,23 @@
+- Ray를 이용한 총알발사
+1. Ray > 시선
+  사용 : Ray ray = new Ray(origin, direction)
+2. RayCast > 시선을 던지다
+3. RayCastHit > 시선이 부딪히다 (시선이 담기는 그릇, 시선이 부딪힌 정보가 담김)
+  사용 : RaycastHit hitInfo;
+  1. 충돌을 감지하기만 한다 (참, 거짓으로)
+  2. 충돌에 관한 정보는 구조체인 RaycastHit에 담긴다
+  3. Return을 사용하지 않고 정보와 충돌 여부를 알 수 있다.
+
+- Ray가 가운데로 가기위해선 카메라를 사용
+Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward); (시작점과 방향)
+
+RaycastHit : 구조체 > value타입
+Physics.Raycast(ray, out hitInfo)
+value 타입을 reference 타입으로 전달하기 위해서 : ref, out 사용
+여기서는 value타입인 raycasthit을 hitinfo에 담아서 reference형태로 내보내달라
+hitInfo를 반환해야 하기에 out 사용
+파티클의 모양을 hitinfo의 방향과 일치시켜주기 bulletImpact.forward = hitInfo.normal;
+
+- 마우스 클릭 지점에 Ray 쏘기
+Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); : 스크린에서 보이는 마우스 좌표계를 월드 공간으로 
+쏴주는 Ray를 만들게 됨
