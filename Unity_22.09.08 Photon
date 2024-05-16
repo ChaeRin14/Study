@@ -1,0 +1,50 @@
+1. 닉네임
+PhotonNetwork.NickName = “이름”;
+
+2. 씬전환 
+PhotonNetwork.LoadLevel(“씬이름”);
+
+3. MonoBehaviourPun 상속
+- photonView 변수에 자동으로 PhotonView가 담긴다.
+
+4. PhotonView
+- 데이터를 보내고/ 받고
+- 플레이어간의 데이터를 연결 시켜주는 기능
+- 내것 아닌지 판단
+
+5. 플레이어 생성
+ 	-  Player Prefab을 Resources 폴더에 생성
+  -  PhotonNetwork.Instantiate(“Player”, 생성위치, 생성 회전값); 
+
+6. Photon Transform View
+- 위치, 크기, 회전 값을 동기화
+
+7. IpunObservable -> OnPhotonSerializeView(**중요, 인터페이스이므로 반드시 구현)  
+- stream.IsWriting == true  //데이터를 보낸다. = IsMine
+ 	→ value(position, rotation) 값만 가능, 클래스는 못보낸다.
+- stream.IsReading == true // 데이터를 받는다.
+	→ IsWriting 순서대로 받아야한다
+	→ 오브젝트 형식으로 들어오므로 강제적 형변환 필수
+
+8. OnPhotonSerializeView 호출빈도
+	- PhotonNetwork.SerializationRate = 60;
+	- 100이 최대
+	- 연속적인 데이터(포지션, 로테이션값)
+
+9. RPC 호출빈도(Remote Procedure call :원격프로시저호출)
+-  PhotonNetwork.SendRate : 60;
+- 단발성(총알을 한번 발사해줘!), 1초에 몇번씩 RPC로 호출된 애를 보내겠다
+RPC를 이용하여 함수를 호출하여 서버에 전달하기 (총알자국)	
+함수를 사용했을 때 효과가 나오는 게 아니라 서버에서 호출되었을 때 출력됨
+	기존의 효과재생을 함수로 지정해줌
+RPC로 실행되는 함수는 반드시 [PunRPC] 붙여야한다
+
+<RpcTarget 속성>
+- All : 모두
+- MasterClient : 방장만
+- Others : 나빼고 다
+- AllBuffered : 나중에 들어왔을때 한번에
+누구의 photonView를 사용하느냐에 따라 실행되는 대상이 달라진다.
+
+
+
